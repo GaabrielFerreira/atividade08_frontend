@@ -1,46 +1,45 @@
 /* App.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #0d0d0d;
-  font-family: 'Courier New', Courier, monospace;
-  color: #00ff44;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  font-family: 'Orbitron', sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  color: #00ffcc;
 }
 
 .App {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 255, 200, 0.3);
+  backdrop-filter: blur(12px);
+  padding: 50px 80px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 150, 0.3);
   text-align: center;
-  background-color: #121212;
-  padding: 40px 60px;
-  border: 2px solid #00ff44;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #00ff44aa;
-  animation: pulse 3s infinite;
+  transition: all 0.3s ease-in-out;
+}
+
+.App:hover {
+  box-shadow: 0 0 50px rgba(0, 255, 180, 0.6);
+  transform: scale(1.01);
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #00ff44;
-  text-shadow: 0 0 8px #00ff44;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #00ffaa;
+  text-shadow: 0 0 15px #00ffaa88;
 }
 
 p {
-  font-size: 1.8rem;
-  margin: 0;
-  color: #00ff99;
-  letter-spacing: 2px;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px #00ff44aa;
-  }
-  50% {
-    box-shadow: 0 0 30px #00ff44;
-  }
+  font-size: 2rem;
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc55;
+  letter-spacing: 3px;
 }

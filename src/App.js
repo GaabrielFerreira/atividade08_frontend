@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Data e Hora (Brasil)</h1>
+      <h1>Data e Hora: </h1>
       <p>{dateTime.date} - {dateTime.time}</p>
     </div>
   );
