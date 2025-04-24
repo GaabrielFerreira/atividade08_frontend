@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [dateTime, setDateTime] = useState({ date: '...', time: '...' });
+
+  // Troque pela URL da sua API no Render depois do deploy
+  const API_URL = 'https://atividade08-backend.onrender.com';
+
+  const fetchDateTime = async () => {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      setDateTime(data);
+    } catch (error) {
+      console.error('Erro ao buscar data/hora:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDateTime(); // pega assim que o componente monta
+
+    const interval = setInterval(fetchDateTime, 1000); // atualiza a cada 1s
+    return () => clearInterval(interval); // limpa ao desmontar
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Data e Hora (Brasil)</h1>
+      <p>{dateTime.date} - {dateTime.time}</p>
     </div>
   );
 }
